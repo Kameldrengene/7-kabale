@@ -90,7 +90,7 @@ public class View {
         int deckPointer = game.getGameBoard().getDeckPointer();
 
         String startLine = "_________________________________________________\n" +
-                "  a♠     b♥     c♣     d♦   " + empty + "   q    deck\n";
+                "  a♠     b♥     c♣     d♦   " + empty + "   q     deck\n";
         String spaceLine = "│    │ │    │ │    │ │    │ " + empty + " │    │ │    │ \n";
         String out = startLine;
         String s;
