@@ -51,7 +51,7 @@ public class View {
 
     public void startGame(){
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String msg = "";
+        String msg = "" + game.getGameBoard().isWon();
         help();
         while (true){
             printCurrent();

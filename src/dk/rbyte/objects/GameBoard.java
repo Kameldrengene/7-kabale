@@ -202,6 +202,19 @@ public class GameBoard {
         }
     }
 
+    public String isWon(){
+        boolean win = true;
+        for (int key : spaces.keySet()){
+            if (spaces.get(key).getHiddenCards().size() != 0){
+                win = false;
+                break;
+            }
+        }
+        if (win) return " -- SPILLET ER VUNDET! --";
+
+        return "";
+    }
+
 
     public HashMap<Integer, ArrayList<Card>> getFinSpaces() {
         return finSpaces;
