@@ -74,12 +74,12 @@ public class View {
 
     public void help(){
         System.out.println("Commands");
-        System.out.println("'help'       displays this msg");
-        System.out.println("'move x y'   moves all cards from pos x to pos y (x [q,0-6], y [0-6])");
-        System.out.println("'move x y n' moves the n first cards from pos x to pos y (x [q,0-6], y [0-6], n [1-13])");
-        System.out.println("'score x'    moves the first card from pos x to correct end spot (x [q,0-6])");
-        System.out.println("'return k y' moves the first card from pile k to pos x (k [a-d], y [0-6])");
-        System.out.println("'draw' / 'd' draws 1 card to pos q/resets deck if no cards available");
+        System.out.println("'help'         displays this msg");
+        System.out.println("'move/m x y'   moves all cards from pos x to pos y (x [q,0-6], y [0-6])");
+        System.out.println("'move/m x y n' moves the n first cards from pos x to pos y (x [q,0-6], y [0-6], n [1-13])");
+        System.out.println("'score/s x'    moves the first card from pos x to correct end spot (x [q,0-6])");
+        System.out.println("'return/r k y' moves the first card from pile k to pos x (k [a-d], y [0-6])");
+        System.out.println("'draw' / 'd'   draws 1 card to pos q/resets deck if no cards available");
     }
     
     public void printCurrent(){

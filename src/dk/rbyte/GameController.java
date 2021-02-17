@@ -19,7 +19,7 @@ public class GameController {
     public boolean executeCommand(String command) throws Exception {
         String[] exe = command.split(" ");
         switch (exe[0]){
-            case "move":
+            case "move": case "m":
                 if (exe.length == 3){
                     String x = exe[1];
                     String y = exe[2];
@@ -40,7 +40,7 @@ public class GameController {
             case "draw": case "d":
                 if (gameBoard.draw()) turns += 1;
                 return true;
-            case "score":
+            case "score": case "s":
                 if (exe.length == 2) {
                     if (gameBoard.score(exe[1])){
                         score += 10;
@@ -49,7 +49,7 @@ public class GameController {
                     return true;
                 }
                 break;
-            case "return":
+            case "return": case "r":
                 if (exe.length == 3){
                     if (gameBoard.remove(exe[1], exe[2])){
                         score -= 10;
