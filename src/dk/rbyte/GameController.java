@@ -65,7 +65,7 @@ public class GameController {
                     break;
             }
         } catch (Exception e) {
-            turns += 1;
+            turns += 1; //Errors cost a turn
             throw e;
         }
 
