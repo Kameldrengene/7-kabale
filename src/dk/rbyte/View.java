@@ -57,6 +57,9 @@ public class View {
             printCurrent();
             System.out.println("message: " + msg);
             msg = "";
+
+            System.out.println(String.format("Score: %d   turns: %d", game.getScore(), game.getTurns()));
+
             System.out.println("Write instruction!");
             try {
                 String command = in.readLine();

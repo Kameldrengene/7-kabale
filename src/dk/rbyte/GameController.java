@@ -7,9 +7,13 @@ import java.util.ArrayList;
 
 public class GameController {
     private GameBoard gameBoard;
+    private int score;
+    private int turns;
 
     public GameController(){
         gameBoard = new GameBoard();
+        score = 0;
+        turns = 0;
     }
 
     public boolean executeCommand(String command) throws Exception {
@@ -19,28 +23,38 @@ public class GameController {
                 if (exe.length == 3){
                     String x = exe[1];
                     String y = exe[2];
-                    gameBoard.move(x, y);
+                    if (gameBoard.move(x, y)){ //will be false if a king from a king move is tried to be moved
+                        score += 5;
+                    }
+                    turns += 1;
                     return true;
                 } else if (exe.length == 4) {
                     String x = exe[1];
                     String y = exe[2];
                     String n = exe[3];
                     gameBoard.move(x, y, n);
+                    turns += 1;
                     return true;
                 }
                 break;
             case "draw": case "d":
-                gameBoard.draw();
+                if (gameBoard.draw()) turns += 1;
                 return true;
             case "score":
                 if (exe.length == 2) {
-                    gameBoard.score(exe[1]);
+                    if (gameBoard.score(exe[1])){
+                        score += 10;
+                    }
+                    turns += 1;
                     return true;
                 }
                 break;
             case "return":
                 if (exe.length == 3){
-                    gameBoard.remove(exe[1], exe[2]);
+                    if (gameBoard.remove(exe[1], exe[2])){
+                        score -= 10;
+                    }
+                    turns += 1;
                     return true;
                 }
                 break;
@@ -53,5 +67,13 @@ public class GameController {
 
     public GameBoard getGameBoard() {
         return gameBoard;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getTurns() {
+        return turns;
     }
 }

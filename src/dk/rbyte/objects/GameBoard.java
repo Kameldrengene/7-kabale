@@ -87,8 +87,11 @@ public class GameBoard {
             Pile movingPile = spaces.get(x);
             Pile endPile = spaces.get(y);
 
+            boolean pointedMoved = true;
+            if (movingPile.getHiddenCards().size() == 0 && movingPile.getShownCards().get(0).getValue() == 13) pointedMoved = false;
+
             if (movingPile.moveToPile(endPile)){
-                return true;
+                return pointedMoved;
             }
 
         }
@@ -191,6 +194,13 @@ public class GameBoard {
         Card finCard = finSpaces.get(k).get(lastFinIndex);
 
         int lastSpaceIndex = spaces.get(y).getShownCards().size() - 1;
+
+        if (finCard.getValue() == 13 && lastSpaceIndex == -1){
+            spaces.get(y).getShownCards().add(finCard);
+            finSpaces.get(k).remove(lastFinIndex);
+            return true;
+        }
+        if (lastSpaceIndex == -1) throw new Exception("Can't return card from pos " + ks + " to pos " + ys);
         Card spaceCard = spaces.get(y).getShownCards().get(lastSpaceIndex);
 
         if (finCard.isDifferent(spaceCard) && finCard.getValue() + 1 == spaceCard.getValue()){
