@@ -51,11 +51,11 @@ public class View {
 
     public void startGame(){
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String msg = "" + game.getGameBoard().isWon();
+        String msg = "";
         help();
         while (true){
             printCurrent();
-            System.out.println("message: " + msg);
+            System.out.println("message: " + msg + " " + game.getGameBoard().isWon());
             msg = "";
 
             System.out.println(String.format("Score: %d   turns: %d", game.getScore(), game.getTurns()));
